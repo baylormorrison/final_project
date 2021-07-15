@@ -2,11 +2,12 @@ from setuptools import setup
 
 setup(
     name='final project',
-    version='1',
-    packages=[''],
+    version='2',
+    packages=['pro skater', 'pro skater.classes'],
     url='',
-    license='free',
+    license='free for whatever, assets may not be',
     author='baylormorrison',
     author_email='w.baylor.morrison@gmail.com',
-    description='module 6 pygame game'
+    description='final project for python class',
+    install_requires=['pygame']
 )
