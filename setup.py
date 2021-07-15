@@ -3,7 +3,7 @@ from setuptools import setup
 setup(
     name='final project',
     version='2',
-    packages=['pro skater', 'pro skater.classes'],
+    packages=['scene_manager', 'scene_manager.classes'],
     url='',
     license='free for whatever, assets may not be',
     author='baylormorrison',
