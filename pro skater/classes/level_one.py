@@ -1,9 +1,8 @@
 import random
 import pygame
-from player import Player
-from sounds import EndSound1, JumpSound, Level1Music
-import scenery
-import collidables
+from scene_manager.classes.player import Player
+from scene_manager.classes.sounds import EndSound1, JumpSound
+from scene_manager.classes import collidables, scenery
 
 from pygame import (
     K_ESCAPE,
@@ -42,7 +41,7 @@ def main():
     won_game = pygame.USEREVENT + 6
 
     # Initialize background, road, and player
-    background = scenery.Background(SCREEN_WIDTH, SCREEN_HEIGHT, "images/two_neighborhood_tiles.jpg", False)
+    background = scenery.Background(SCREEN_WIDTH, SCREEN_HEIGHT, "classes/images/two_neighborhood_tiles.jpg", False)
     road = scenery.Road()
     player = Player(SCREEN_WIDTH, SCREEN_HEIGHT)
     barrel = collidables.Obstacle(player, SCREEN_WIDTH)

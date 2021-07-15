@@ -1,9 +1,8 @@
 import random
 import pygame
-from player import Player
-from sounds import EndSound2, JumpSound
-import scenery
-import collidables
+from scene_manager.classes.player import Player
+from scene_manager.classes.sounds import EndSound2, JumpSound
+from scene_manager.classes import collidables, scenery
 
 from pygame import (
     K_ESCAPE,
@@ -38,7 +37,7 @@ def main():
     won_game = pygame.USEREVENT + 6
 
     # Initialize background, road, and player
-    background = scenery.Background(SCREEN_WIDTH, SCREEN_HEIGHT, "images/l2neighborhoodtwotiles.png", True)
+    background = scenery.Background(SCREEN_WIDTH, SCREEN_HEIGHT, "classes/images/l2neighborhoodtwotiles.png", True)
     road = scenery.Road()
     player = Player(SCREEN_WIDTH, SCREEN_HEIGHT)
     barrel = collidables.Obstacle(player, SCREEN_WIDTH)
@@ -58,7 +57,7 @@ def main():
 
     # Obstacle spawn control
     # test spawns
-    spawns = [400, 805, 400, 805, 400, 805, 400, 805, 805, 806]
+    spawns = [300, 825, 300, 825, 300, 825, 300, 825, 825, 826]
     i = 0
     last_barrel = barrel
 
@@ -101,7 +100,7 @@ def main():
             elif event.type == won_game:
                 EndSound2()
 
-        if i < len(spawns) and last_barrel.rect.centerx <= spawns[i]:
+        if i < len(spawns) and last_barrel.rect.left <= spawns[i]:
             new_obstacle = collidables.Obstacle(player, SCREEN_WIDTH)
             barrels.add(new_obstacle)
             collision_order.add(new_obstacle)

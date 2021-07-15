@@ -14,7 +14,7 @@ class Player(pygame.sprite.Sprite):
         # Render variables
         self.screenHeight = screenHeight
         self.screenWidth = screenWidth
-        self.file = pygame.image.load("images/riding.png").convert_alpha()
+        self.file = pygame.image.load("classes/images/riding.png").convert_alpha()
         self.file.set_colorkey((255, 255, 255), RLEACCEL)
         self.size = self.file.get_size()
         self.surf = pygame.transform.scale(self.file, (int(self.size[0] / 4), int(self.size[1] / 4)))
@@ -44,9 +44,9 @@ class Player(pygame.sprite.Sprite):
 
     def toggleJumpSprite(self):
         if self.isJump:
-            self.surf = pygame.transform.scale(pygame.image.load("images/jumping.png").convert_alpha(), (int(self.size[0] / 4), int(self.size[1] / 4)))
+            self.surf = pygame.transform.scale(pygame.image.load("classes/images/jumping.png").convert_alpha(), (int(self.size[0] / 4), int(self.size[1] / 4)))
         else:
-            self.surf = pygame.transform.scale(pygame.image.load("images/riding.png").convert_alpha(),
+            self.surf = pygame.transform.scale(pygame.image.load("classes/images/riding.png").convert_alpha(),
                                                (int(self.size[0] / 4), int(self.size[1] / 4)))
 
     def jump(self):

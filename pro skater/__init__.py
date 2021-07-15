@@ -1,6 +1,5 @@
-import pygame
-import level_one
-import level_two
+from scene_manager.classes import level_two, level_one
+
 levelOneFinish = False
 
 running = True

@@ -1,8 +1,7 @@
 import pygame
 import math
 import random
-from helper_methods import imageStack
-from helper_methods import scaleSurf
+from scene_manager.classes.helper_methods import imageStack
 
 from pygame import (
     RLEACCEL,
@@ -12,7 +11,7 @@ from pygame import (
 class Cloud(pygame.sprite.Sprite):
     def __init__(self, screenWidth, screenHeight):
         super(Cloud, self).__init__()
-        self.surf = pygame.image.load("images/cloud.png").convert()
+        self.surf = pygame.image.load("classes/images/cloud.png").convert()
         self.surf.set_colorkey((0, 0, 0), RLEACCEL)
         self.rect = self.surf.get_rect(
             center=(
@@ -47,7 +46,7 @@ class Background(pygame.sprite.Sprite):
 class Road(pygame.sprite.Sprite):
     def __init__(self):
         super(Road, self).__init__()
-        self.surf = pygame.image.load("images/road.jpg").convert()
+        self.surf = pygame.image.load("classes/images/road.jpg").convert()
         self.size = self.surf.get_size()
         self.surf.set_colorkey((255, 255, 255), RLEACCEL)
         self.bigger = pygame.transform.scale(self.surf, (int(self.size[0] * 2), int(self.size[1] * 2)))
@@ -62,7 +61,7 @@ class Road(pygame.sprite.Sprite):
 class WinText(pygame.sprite.Sprite):
     def __init__(self, screenWidth, screenHeight):
         super(WinText, self).__init__()
-        self.surf = pygame.image.load("images/you win.png").convert()
+        self.surf = pygame.image.load("classes/images/you win.png").convert()
         self.surf.set_colorkey((255, 255, 255), RLEACCEL)
         self.rect = self.surf.get_rect(
             center=(
@@ -75,7 +74,7 @@ class WinText(pygame.sprite.Sprite):
 class GameOver(pygame.sprite.Sprite):
     def __init__(self, screenWidth, screenHeight):
         super(GameOver, self).__init__()
-        self.surf = pygame.image.load("images/game over.png").convert()
+        self.surf = pygame.image.load("classes/images/game over.png").convert()
         self.surf.set_colorkey((255, 255, 255), RLEACCEL)
         self.rect = self.surf.get_rect(
             center=(
@@ -88,7 +87,7 @@ class GameOver(pygame.sprite.Sprite):
 class Halo(pygame.sprite.Sprite):
     def __init__(self, player):
         super(Halo, self).__init__()
-        self.images = imageStack("images/power_up/power up_", 6, 8)
+        self.images = imageStack("classes/images/power_up/power up_", 6, 8)
         self.current_image = 0
         self.surf = self.images[self.current_image]
         self.rect = self.surf.get_rect(center=player.rect.center)

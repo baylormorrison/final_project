@@ -1,12 +1,12 @@
 import pygame
 import random
-from helper_methods import scaleSurf, imageStack
+from scene_manager.classes.helper_methods import scaleSurf, imageStack
 
 
 class Obstacle(pygame.sprite.Sprite):
     def __init__(self, player, screenWidth):
         super(Obstacle, self).__init__()
-        self.surf = scaleSurf("images/barrel.png", 8)
+        self.surf = scaleSurf("classes/images/barrel.png", 8)
         self.rect = self.surf.get_rect(centerx=screenWidth, bottom=(player.ground))
 
     def update(self):
@@ -18,7 +18,7 @@ class Obstacle(pygame.sprite.Sprite):
 class Bird(pygame.sprite.Sprite):
     def __init__(self, screenWidth, screenHeight):
         super(Bird, self).__init__()
-        self.images = imageStack("images/bird/bird_", 7, 8)
+        self.images = imageStack("classes/images/bird/bird_", 7, 8)
         self.current_image = 0
         self.surf = self.images[self.current_image]
         self.rect = self.surf.get_rect(center=(screenWidth, screenHeight / 8))
@@ -46,7 +46,7 @@ class Bird(pygame.sprite.Sprite):
 class PowerUp(pygame.sprite.Sprite):
     def __init__(self, screenWidth, screenHeight):
         super(PowerUp, self).__init__()
-        self.images = imageStack("images/power_up/power up_", 8, 8)
+        self.images = imageStack("classes/images/power_up/power up_", 8, 8)
         self.current_image = 0
         self.surf = self.images[self.current_image]
         self.rect = self.surf.get_rect(center=(random.randint(0, screenWidth), 0))
@@ -70,7 +70,7 @@ class PowerUp(pygame.sprite.Sprite):
 class Finish(pygame.sprite.Sprite):
     def __init__(self, screenWidth, screenHeight):
         super(Finish, self).__init__()
-        self.surf = scaleSurf("images/finish.png", 3)
+        self.surf = scaleSurf("classes/images/finish.png", 3)
         self.rect = self.surf.get_rect(left=screenWidth, bottom=screenHeight - 10)
 
     def update(self):
